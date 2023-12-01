@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORCEIQ - Mide Tu Progreso</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/calculadoras.css">
+    <script src="https://kit.fontawesome.com/69b3f2c6b1.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+        
+            <!--logo-->
+          <a class="navbar-brand fs-4" href="index.html">FORCEIQ</a>
+
+          <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!--Sidebar-->
+          <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <!--Sidebar header-->
+            <div class="offcanvas-header text-white border-bottom">
+              <h5 class="offcanvas-title align-items-center" id="offcanvasNavbarLabel">FORCEIQ</h5>
+              <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <!--Sidebar body-->
+            <div class="offcanvas-body d-flex flex-lg-row flex-column p-4 p-lg-0">
+              <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+                <li class="nav-item mx-2">
+                  <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active text-white" aria-current="page" href="calculadoras.html">Calculadoras</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active text-white" aria-current="page" href="acdn.html">Quienes somos</a>
+                </li>
+              </ul>
+              <!-- login signup -->
+              <div class="d-flex flex-column justify-content-center flex-lg-row align-items-center gap-3">
+                <a href="login.html" class=""><i class="fa-sharp fa-solid fa-user"></i></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <div class="cont-calc">
+      <form id="caloriesForm" class="form-register">
+        <h4>Calculadora de calorias (kg)</h4>
+        <input class="controls" type="number" name="age" id="age" placeholder="Ingrese su Edad">
+        <select class="controls" id="gender" name="gender" required>
+            <option value="male">Hombre</option>
+            <option value="female">Mujer</option>
+        </select>
+        <input class="controls" type="number" name="weight" id="weight" placeholder="Ingrese su Peso">
+        <input class="controls" type="number" name="height" id="height" placeholder="Ingrese su Altura(cm)">
+        <button type="button" class="btn btn-primary" onclick="calculateCalories()">Calcular</button>
+      </form>
+    </div>
+
+    <div class="cont-calc">
+      <form id="caloriesForm" class="form-register">
+        <h4>Calculadora de IMC</h4>
+        <input class="controls" type="number" name="age" id="age" placeholder="Ingrese su Edad" required>
+        <select class="controls" id="gender" name="gender" required>
+            <option value="male">Hombre</option>
+            <option value="female">Mujer</option>
+        </select>
+        <input class="controls" type="number" name="weight" id="weight" placeholder="Ingrese su Peso">
+        <input class="controls" type="number" name="height" id="height" placeholder="Ingrese su Altura(cm)">
+        <button type="button" class="btn btn-primary" onclick="calculateCalories()">Calcular</button>
+      </form>
+    </div>
+    <!-- Calculadora de Calorías -->
+
+
+        <form id="caloriesForm">
+
+          <div class="cont-calc">
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" required>
+          </div>
+
+          <div class="cont-calc">
+            <label for="gender">Género:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Hombre</option>
+                <option value="female">Mujer</option>
+            </select>
+          </div>
+          <div class="cont-calc">
+            <label for="weight">Peso (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+          </div>
+          <div class="cont-calc">
+            <label for="height">Altura (cm):</label>
+            <input type="number" id="height" name="height" required>
+          </div>
+            <button type="button" class="btn btn-primary" onclick="calculateCalories()">Calcular</button>
+        </form>
+        <p id="caloriesResult"></p>
+    </div>
+
+    <!-- Calculadora de IMC -->
+    <div class="calculator">
+        <h2>Calculadora de IMC</h2>
+        <form id="bmiForm">
+            <label for="weightBMI">Peso (kg):</label>
+            <input type="number" id="weightBMI" name="weightBMI" required>
+
+            <label for="heightBMI">Altura (m):</label>
+            <input type="number" id="heightBMI" name="heightBMI" step="0.01" required>
+
+            <button type="button" onclick="calculateBMI()">Calcular</button>
+        </form>
+        <p id="bmiResult"></p>
+    </div>
+
+    <!-- Calculadora de Proteína -->
+    <div class="calculator">
+        <h2>Calculadora de Proteína</h2>
+        <form id="proteinForm">
+            <label for="weightProtein">Peso (kg):</label>
+            <input type="number" id="weightProtein" name="weightProtein" required>
+
+            <button type="button" onclick="calculateProtein()">Calcular</button>
+        </form>
+        <p id="proteinResult"></p>
+    </div>
+
+    <script src="js/calculadoras.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
